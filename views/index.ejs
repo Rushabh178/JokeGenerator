@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Joke</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+    <h1 id="title">Bored, Want to Listen to Funny Jokes</h1>
+    <div class="container">
+        <div class="display">
+            <% if (locals. setup ) { %>
+                <p>
+                    <%= setup %>
+                </p>
+                <% } else {%>
+                    <p>Please select the below options...</p>
+
+                    <% }if(locals.delivery) { %>
+                        <p>
+                            <%= delivery %>
+                        </p>
+                        <% } %>
+        </div>
+        <form id="myForm" method="post">
+            <div class="part">
+                <h2 id="type">Select Category/Categories:</h2>
+                <div class="radioButton">
+                    <input type="radio" name="cust" value="Any" id="radio1">
+                    <label for="any">Any</label>
+                </div>
+                <div class="radioButton">
+                    <input type="radio" name="cust" value="" id="radio2">
+                    <label for="custom">Custom :</label>
+                    <div class="multiS" id="multiSelect">
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Programming" id="cat-cb1" onchange="reRender()">
+                            Programming
+                        </label>
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Misc" id="cat-cb2" onchange="reRender()">
+                            Misc
+                        </label>
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Dark" id="cat-cb3" onchange="reRender()">
+                            Dark
+                        </label>
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Pun" id="cat-cb4" onchange="reRender()">
+                            Pun
+                        </label>
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Spooky" id="cat-cb5" onchange="reRender()">
+                            Spooky
+                        </label>
+                        <label for="arr[]">
+                            <input type="checkbox" name="arr[]" value="Christmas" id="cat-cb6" onchange="reRender()">
+                            Christmas
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="part">
+                <h2>Select language</h2>
+
+                <select id="lcodeSelect" class="appendLangOpts" name="lang">
+                    <option value="cs">cs - Czech</option>
+                    <option value="de">de - German</option>
+                    <option value="en">en - English</option>
+                    <option value="es">es - Spanish</option>
+                    <option value="fr">fr - French</option>
+                    <option value="pt">pt - Portuguese</option>
+                </select>
+            </div>
+            <div class="part">
+                <h2>Select flag for black list (optional)</h2>
+                <div class="multiS">
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="nsfw" onchange="reRender()">nsfw
+                    </label>
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="religious" onchange="reRender()">religious
+                    </label>
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="political" onchange="reRender()">political
+                    </label>
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="racist" onchange="reRender()">racist
+                    </label>
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="sexist" onchange="reRender()">sexist
+                    </label>
+                    <label for="flag">
+                        <input type="checkbox" name="flag" value="explicit" onchange="reRender()">explicit
+                    </label>
+                </div>
+            </div>
+            <!-- <div class="part">
+                <h2>Number of Jokes</h2>
+                <input type="number" id="jokesAmountInput" value="1" min="1" step="1" oninput="reRender()" max="10">
+            </div> -->
+            <div class="submit">
+                <input type="submit" value="Submit" id="submit" formaction="/get-jokes">
+            </div>
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>
